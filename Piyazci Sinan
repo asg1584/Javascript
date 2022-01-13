@@ -1,0 +1,214 @@
+//1) Stok miktari 500 kg uzerinde olan baliklarin isimleri nelerdir?
+const fishFarm = [ 
+    { 
+        fishType: "Salmon",
+        price: 15.70,
+        entryDate: new Date(2021, 0, 1),    // 01.01.2021
+        durationInDays: 30,
+        itemWeightInGrams: 145,
+        originCountry: "Norway", 
+        season: "Winter", 
+        stockVolumeInKg: 6500,
+        saleLocations: ["ZH", "GE", "BE", "VD"],
+    },
+    { 
+        fishType: "Seatrout",
+        price: 7.90,
+        entryDate: new Date(2021, 11, 12),    // 12.12.2021
+        durationInDays: 20,
+        itemWeightInGrams: 460,
+        originCountry: "Japan", 
+        season: "Winter", 
+        stockVolumeInKg: 1600,
+        saleLocations: ["GL", "GR", "BE", "VS"],
+    },
+    { 
+        fishType: "Sailfish",
+        price: 5.20,
+        entryDate: new Date(2021, 3, 19),    
+        durationInDays: 15,
+        itemWeightInGrams: 240,
+        originCountry: "United Kingdom", 
+        season: "Spring", 
+        stockVolumeInKg: 500,
+        saleLocations: ["ZH", "SH", "BL", "SO"],
+    },
+    { 
+        fishType: "Red Drum",
+        price: 3.10,
+        entryDate: new Date(2021, 5, 15),   
+        durationInDays: 18,
+        itemWeightInGrams: 300,
+        originCountry: "Poland", 
+        season: "Summer", 
+        stockVolumeInKg: 15500,
+        saleLocations: ["FR", "GE", "NE", "TI"],
+    },
+    { 
+        fishType: "Pompano",
+        price: 10,
+        entryDate: new Date(2021, 8, 17),    
+        durationInDays: 20,
+        itemWeightInGrams: 645,
+        originCountry: "France", 
+        season: "Autumn", 
+        stockVolumeInKg: 1500,
+        saleLocations: ["ZH", "GE", "BE", "VD"],
+    },
+    { 
+        fishType: "Bluefish", 
+        price: 13.70,
+        entryDate: new Date(2021, 10, 11),  
+        durationInDays: 5,
+        itemWeightInGrams: 845,
+        originCountry: "Italy", 
+        season: "Winter", 
+        stockVolumeInKg: 200,
+        saleLocations: ["NW", "OW", "UR", "LU"],
+    },
+    { 
+        fishType: "Mackerel",
+        price: 8.90,
+        entryDate: new Date(2021, 6, 18),    
+        durationInDays: 16,
+        itemWeightInGrams: 150,
+        originCountry: "GREECE", 
+        season: "Summer", 
+        stockVolumeInKg: 8100,
+        saleLocations: ["AG", "BL", "BE", "VD", "TG"],
+    },
+    { 
+        fishType: "Perch",
+        price: 11.90,
+        entryDate: new Date(2021, 10, 1),  
+        durationInDays: 30,
+        itemWeightInGrams: 222,
+        originCountry: "Egypt", 
+        season: "Summer", 
+        stockVolumeInKg: 9500,
+        saleLocations: ["TI", "GE", "ZH", "VD", "AR"],
+    },
+    { 
+        fishType: "Mullet",
+        price: 4.80,
+        entryDate: new Date(2021, 2, 14),   
+        durationInDays: 30,
+        itemWeightInGrams: 333,
+        originCountry: "Vietnam", 
+        season: "Summer", 
+        stockVolumeInKg: 600,
+        saleLocations: ["ZH", "GE", "BE", "VD"],
+    },
+    { 
+        fishType: "Tuna",
+        price: 19.50,
+        entryDate: new Date(2021, 0, 1),    
+        durationInDays: 30,
+        itemWeightInGrams: 250,
+        originCountry: "Spain", 
+        season: "Winter", 
+        stockVolumeInKg: 2300,
+        saleLocations: ["ZH", "VD", "BS", "TI", "SG"],
+    },  
+]
+
+const list1 = fishFarm
+                    .filter((fish) => fish.stockVolumeInKg > 500)
+                    .map((fish) => fish.fishType);
+
+console.log("1- Stok miktari 500 kg uzerinde olan baliklarin isimleri: ", list1.join(", "));
+
+
+//2) Fiyat araligi 9Fr. ile 12 Fr. arasindaki baliklar hangileridir?
+const list2 = fishFarm
+                    .filter((fish) => fish.price > 9 && fish.price < 12)
+                    .map((fish) => fish.fishType);
+
+console.log("2- Fiyat araligi 9Fr. ile 12 Fr. arasindaki baliklar: ", list2.join(", "));
+
+
+//3) Sadece Bern'de ve kis sezonu satilan baliklar hangileridir?
+const list3 = fishFarm
+                    .filter((fish) => fish.season == "Winter" && fish.saleLocations.some((fish) => fish == "BE"))
+                    .map((fish) => fish.fishType);
+
+console.log("3- Sadece Bern'de ve kis sezonu satilan baliklar: ", list3.join(", "));
+
+
+//4) Son kullanma tarihlerine gore baliklari siralayiniz. (Son kullanma tarihi yaklasan baliklar once gosterilmelidir)
+// Son kullanma tarihlerine gore baliklarin listesi
+const list4 = fishFarm
+                    .map((pDeatails) => {
+                        const date = pDeatails.entryDate;
+                        return {
+                            name: pDeatails.fishType,
+                            expirationDate: date.setDate(date.getDate() + pDeatails.durationInDays),
+                        };
+                    })
+                    .sort(function (a, b) {return b.date - a.date})
+                    .reverse()
+                    .map((pListSelected) => pListSelected.name);
+
+console.log("4- Son kullanma tarihlerine gore baliklarin siralamasi: ", list4.join(", "));
+
+
+//5) Avrupa Birligi'nden (AB) gelen ve fiyati 10Fr dan dusuk olan baliklari alfabetik siraya gore siralayiniz.
+const list5 = fishFarm
+                    .filter((fish) => ["Poland", "France", "Italy", "GREECE", "Spain"].includes(fish.originCountry) && fish.price < 10)
+                    .map((fish) => fish.fishType)
+                    .sort();
+
+console.log("5- Avrupa Birligi'nden (AB) gelen ve fiyati 10Fr dan dusuk olan baliklarin alfabetik siraya gore siralamasi: ", list5.join(", "));
+
+
+//6) Toplam balik stoku ne kadardir?
+let stock = 0;
+fishFarm.forEach((fish) => stock = stock + fish.stockVolumeInKg);
+
+console.log("6- Toplam balik stoku: ", stock, "KG");
+
+
+//7) En pahali olan balik hangisidir?
+const result = fishFarm.find( ({ price }) => price === Math.max.apply(Math, fishFarm.map(function(o) { return o.price; })) ).fishType;
+
+console.log("7- En pahali olan balik: ", result);
+
+
+//8) En uzun sureli durabilen baliklar hangi ulkeden gelmektedir?
+const result2 = fishFarm
+                    .sort((fish1, fish2) => fish1.durationInDays < fish2.durationInDays ? 1 : -1)
+                    .filter((fish) => fish.durationInDays == fishFarm[0].durationInDays)
+                    .map((fish) => fish.fishType)
+
+console.log("8- En uzun sureli durabilen balik: ", result2.join(", "));
+
+//9) Kis ve sonbahar sezonu icin swiss romande region'da satilan baliklarin ortalama fiyati nedir?
+let avgPrice = 0;
+const list9 = fishFarm
+                    .filter((fish) => fish.season == "Winter" || fish.season == "Autumn" && ["GE", "BS", "BL"].includes(fish.saleLocations))
+                    .map((fish) => fish.price);
+
+avgPrice = list9.reduce((a,v,i)=>(a*i+v)/(i+1));
+
+console.log("9- Kis ve sonbahar sezonu icin swiss romande region'da satilan baliklarin ortalama fiyati: ", avgPrice, "FR");
+
+
+//10) Ticino Kantonu icin stokta toplam ne kadar balik mevcuttur?
+let stockTI = 0;
+const list10 = fishFarm
+                    .filter((fish) => fish.saleLocations.some((fish) => fish == "TI"))
+                    .map((fish) => fish.stockVolumeInKg)
+                    .forEach((fish) => stockTI = stockTI + fish);
+
+console.log("10- Ticino Kantonu icin toplam stok miktari: ", stockTI);
+
+
+//11) Yazlik sezonda cikan ve AB disindan gelen ve de ZH'de satilan baliklarin ortalama gramajini bulunuz?
+
+const list11 = fishFarm
+                    .filter((fish) => fish.season == "Summer" && !["Poland", "France", "Italy", "GREECE", "Spain"].includes(fish.originCountry) && fish.saleLocations.some((fish) => fish == "ZH"))
+                    .map((fish) => fish.itemWeightInGrams);
+
+let avg = list11.reduce((a,v,i)=>(a*i+v)/(i+1));
+
+console.log("11- Yazlik sezonda cikan ve AB disindan gelen ve de ZH'de satilan baliklarin ortalama gramaji: ", avg, "GR");
