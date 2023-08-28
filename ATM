@@ -1,0 +1,46 @@
+Let newLine = "\r\n";
+let balance = 1000;
+
+let text = "1- Balance viewing"+ newLine
++ "2- Money Withdrawing"+ newLine
++ "3- Money Debiting"+ newLine
++"4- Exit"+ newLine
++"Please make a selection";
+
+
+let choice = prompt(text);
+
+switch(choice) {
+    case "1": 
+        alert("Your Balance is " + balance);
+        break;
+    case "2":
+        let withdrawMoneyAmount = Number(prompt("Amount you want to withdraw"));
+        if (withdrawMoneyAmount <= balance) { 
+            // Successful
+            balance = balance - withdrawMoneyAmount;
+            alert("Balance: " + balance);
+        } else {
+            alert("You cannot withdraw more money than your balance" + newLine 
+            + "Your balance is: " + balance + ", Withdraw Amount: " + withdrawMoneyAmount);
+        }
+        break;
+
+    case "3":
+        let debitedAmount = Number(prompt("Amount you want to debit"));
+        balance = balance + debitedAmount;
+        alert("Your new balance is: " + balance);
+        break;
+
+    case "4":
+        alert("You exited from the system"); 
+
+        break;
+    
+    default:
+        alert("Please make a selection between 1-4");
+        break;    
+}
+
+
+
