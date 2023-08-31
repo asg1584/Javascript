@@ -1,0 +1,10 @@
+// Using shortest way makes our code better. We must try to find the best practice. Shortest way is usually best best practice.
+function greaterOrEqual(a,b){
+    return (a === b ) ? "A and B are equal"
+    : (a>b) ? "A is greater than b"
+    :   "b is greater than a"
+}
+
+const compare = greaterOrEqual(12,14);
+
+console.log(compare);
