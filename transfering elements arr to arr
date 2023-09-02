@@ -1,0 +1,13 @@
+// In this project, I filtered an array with an Iterate. Filtered elements are transferred to another array.
+const arr = [1, 25, 6, 46, 7 ];
+const evenArr = [];
+
+divideTwo = ()=>{
+    for (let i = 0; i < arr.length; i++){
+        if (arr[i] % 2 == 0)     
+        evenArr.push(arr[i]);
+    }
+
+}
+divideTwo();
+console.log(evenArr);
