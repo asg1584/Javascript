@@ -1,0 +1,8 @@
+// Developers should foresee users mistakes. When a user forget to write a value, system can be blocked.
+For this reason, we  identify default values for users
+
+const multiply = (val1= 1, val2=1) => val1*val2;
+
+ const result = multiply(undefined, 5);
+
+ console.log(result);
