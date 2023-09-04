@@ -1,0 +1,13 @@
+// Coders can  not know every possible value. Because of this uncertainty, we try to write most flexible code. Arguments are very good example for that.
+// We examine if values smaller than a limit is, we can use arguments to escape from this ambiguity.
+
+   const  limit = (...args) => {
+    const passedCount = args.filter(arg => arg >= 50).length;
+    const failedCount = args.length - passedCount;
+        return `You are succesful in ${passedCount} and you are failed in ${failedCount} exam.` 
+    
+  }
+  
+  const result = limit(50, 44, 88, 23);
+  console.log(result);
+  
