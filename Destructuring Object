@@ -1,0 +1,27 @@
+//Destructuring assignment is special syntax introduced in ES6, for neatly assigning values taken directly from an object.
+
+
+const user = { name: 'John Doe', age: 34 };
+
+const name = user.name;
+const age = user.age;
+
+//When user write console.log(age), user get "34" as response 
+
+//There is another way for this process. User may write:
+
+const { name, age } = user;
+
+////When user write console.log(name), user get "John Doe" as response 
+
+
+const diary = { 
+    name : "sebastian", 
+    surname : "Light",
+    age : 22,
+    job: "Developer"
+};
+
+const {surname, age} = diary;
+
+console.log(surname);
