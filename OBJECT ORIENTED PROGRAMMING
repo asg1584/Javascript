@@ -1,0 +1,24 @@
+  // OBJECT ORIENTED PROGRAMMING
+  // IT INCLUDES 3 PART : VALUES, CONSTRUCTION, FUNCTION
+  // FIRST WE DEFINE VALUES. THEN WE CONSTRUCT CONSTRUCTION. WE MAKE FUNCTION.
+  // IN THE END WE CREATE A OBJECT WITH VALUES. AND WE USE OUR CLASS'S PROCESS.
+
+class Human{
+    constructor(name, age, salary, department){
+       this.name = name;
+       this.age = age;
+       this.salary = salary;
+       this.department = department; 
+    }
+    showInformations(){
+        console.log(
+            `Name: ${this.name} 
+            Age : ${this.age}
+            salary : ${this.salary}
+            department : ${this.department} `
+            )
+    }
+}
+  
+const human = new Human("salih", 12, 1500, "IT");
+human.showInformations()
