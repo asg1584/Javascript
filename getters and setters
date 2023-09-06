@@ -1,0 +1,29 @@
+// When we need a value which is not needed to write one more time, we can get from another value in our codes. We use get values with dolar and curly braces. 
+const person = {
+    firstName : "Salih",
+    lastName : "gunes",
+    fullName : function(){
+        return `${this.firstName} ${this.lastName}`
+    }
+}
+
+// But this time we have another problem. We can not change this values directly writing with "person.fullName = " Ahmet Salih Günes" ". This situation 
+// limits our flexibility. For this reason we use getters and setters. We use GETTERS TO ACCESS THE PROPERTY, SETTERS TO MUTATE them.
+const person = {
+    firstName : 'Salih',
+    lastName : 'gunes',
+     get fullName (){
+        return `${person.firstName} ${person.lastName}`
+    },
+    set fullName (value){
+        const parts= value.split(' ');
+        this.firstName = parts[0];
+        this.lastName = parts[1];
+    }
+};
+
+person.fullName = "Barrack Obama";
+console.log(person);
+
+// Our aim is splitting fullname to first and second name when we change
+// it from outside. 
