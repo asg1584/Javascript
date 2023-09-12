@@ -1,0 +1,28 @@
+//Pop and shift method
+let arr = ["This", "is", "awesome"];
+let popMethod = arr.pop();
+let shiftMethod = arr.shift();
+
+console.log(arr);
+console.log("Result of pop method is :" + popMethod);// We use pop method to take the last element in object.
+console.log("shift method is :" + shiftMethod);// We use shift method to take the first element in object.
+// Splice method
+let array = ['today', 'was', 'not', 'so', 'great'];
+console.log("array is :" + array);
+let divided = array.splice(1,1); // That means it divided from 2nd element and just 1 element
+console.log("second element is :" + divided);
+
+// With splice we can add elements to array.
+const numbers = [10, 11, 12, 12, 15];
+const startIndex = 3;
+const amountToDelete = 1;
+numbers.splice(startIndex, amountToDelete, 13, 14); // It uses this method to add extra numbers instead of deleted numbers.
+
+console.log("Splice method used array :" + numbers);
+
+let weatherConditions = ['rain', 'snow', 'sleet', 'hail', 'clear'];
+
+let todaysWeather = weatherConditions.slice(1, 3);
+
+console.log("The result of slice method is :" + todaysWeather);
+console.log("The condition of object is :" + weatherConditions);//Same after slice method
