@@ -1,0 +1,21 @@
+/* While slice() allows us to be selective about what elements of an array to copy, among several other useful tasks, 
+ES6's new spread operator allows us to easily copy all of an array's elements, in order, with a simple and highly readable syntax.*/
+
+let firstArray = [1, 2, 4, "Copy that", "Not that", 22, 21];
+let copiedArray = [...firstArray];
+
+console.log(copiedArray);// You can see same array like firstArray.
+// It is a good example for array copying.
+function copyMachine(arr, num) {
+  let newArr = [];
+  while (num >= 1) {
+    
+ newArr.push([...arr]);// We send all of this array with this method
+    
+    num--;
+  }
+  return newArr;
+}
+
+console.log(copyMachine([true, false, true], 2));
+
