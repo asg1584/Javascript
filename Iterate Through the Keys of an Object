@@ -1,0 +1,19 @@
+/* Sometimes we need the to have the 2nd nested object layer to write to console. We can write directly but the result is only first layer.
+In this situation, we can use for loop to show the 2nd layer of nested object. */
+  const nestedArray = [
+    {
+      name: "John",
+      age: 30,
+      address: {
+        street: "123 Main St",
+        city: "New York",
+        zipCode: "10001"
+      }
+    }
+]
+console.log(nestedArray); // Result is just     " {…}"
+
+for (const list in nestedArray) {
+    console.log(list, nestedArray[list]);
+  }; // result is {name: 'John', age: 30, address: {…}}
+
