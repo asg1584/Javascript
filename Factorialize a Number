@@ -1,0 +1,12 @@
+// Factorialization is  a process that multiply every number until this number. 5 ! = 1*2*3*4*5  When we must do this with coding, we have this codes.
+
+  function factorialize(num){
+    let production = 1 ;
+    for (let i = 2; i <= num; i++){ // We take every number until "num". 
+      production *= i; // and multiply every number until num.
+    }
+    return production;
+  }
+
+  let factor = factorialize(12);
+  console.log("12! :" + factor);
