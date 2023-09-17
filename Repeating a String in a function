@@ -1,0 +1,14 @@
+/* Sometime we need to repeat a word in a string or array. We should write  a code to do this mission. 
+We can fullfill this object with this code.*/ 
+
+function repeatStringNumTimes(str, num) {
+let timesString = ""; // We create an empty string.  
+
+for (let i =0; i<num; i++){
+timesString += str ; // We repeat how many times is wanted. Then we add to our new empty array. 
+}
+
+  return timesString;
+}
+
+repeatStringNumTimes("abc", 3);
