@@ -1,0 +1,25 @@
+/* Return the lowest index at which a value (second argument) should be inserted into an array (first argument) once it has been sorted. The returned value should be a number.
+
+For example, getIndexToIns([1,2,3,4], 1.5) should return 1 because it is greater than 1 (index 0), but less than 2 (index 1).
+
+Likewise, getIndexToIns([20,3,5], 19) should return 2 because once the array has been sorted it will look like [3,5,20] and 19 is less than 20 (index 2) and greater than 5 (index 1).*/
+
+/* My problem was, I thought i  can add num to array and then I find the num's index in array. But it makes num a part of array and I could not find num's index. 
+So that I used 2nd method. */
+
+function getIndexToIns(arr, num) {
+  // First we sorted the array before we add num.
+  const sortedArray = arr.sort((a, b) => a - b);
+
+  // We find where the num's index in sorted array
+  let index = 0;
+  while (index < sortedArray.length && sortedArray[index] < num) {
+    index++;
+  }
+
+  // We asked index, that shows us where the index of num is.
+  return index;
+}
+
+const result = getIndexToIns([40, 60], 50);
+console.log(result); // Result: 1
