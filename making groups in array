@@ -1,0 +1,33 @@
+function chunkArrayInGroups(arr, size) {
+  let temp = [];
+  const result = [];
+//Initialize an empty array temp to store the current chunk being built and an empty array result to store the final result.
+  for (let a = 0; a < arr.length; a++) {
+    if (a % size !== size - 1) temp.push(arr[a]); //For each element in arr, if the current index a is not at the end of a chunk, add the element to the temp array.
+    else {
+      temp.push(arr[a]);
+      result.push(temp);
+      temp = [];
+    }
+  }
+
+  if (temp.length !== 0) result.push(temp);//After the loop, check if there are any remaining elements in the temp array. If there are, push the temp array into the result array. 
+  return result;
+}
+
+
+
+chunkArrayInGroups(["a", "b", "c", "d"], 2);
+/*In the loop:
+
+At a = 0, "a" is added to temp.
+
+At a = 1, "b" is added to temp.
+
+Since a = 1 is the end of a chunk (size 2), temp is pushed to result, and temp is reset to an empty array.
+
+At a = 2, "c" is added to temp.
+
+At a = 3, "d" is added to temp.
+
+Since a = 3 is the end of the array, temp is pushed to result, and temp is reset to an empty array.*/
