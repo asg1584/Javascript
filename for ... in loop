@@ -1,0 +1,20 @@
+/* It is used to check all properties of an object. We do not use any index in this method. With in operator, it checks all properties of object.
+With hasOwnProperty method it checks if this object property or not has. */
+
+ function bird(name){
+  this.name = name;
+  this.numLegs = 2;
+ }
+
+ let duck = new bird("Donald"); // We created an object with name as "Donald".
+ let canary = new bird("Tweety"); // We created an object with name as "Tweety".
+
+ let ownProps = [];
+
+ for(let property in duck){
+  if(duck.hasOwnProperty(property)){  
+    ownProps.push(property);   // Send these properties to ownProps. 
+  }
+ }
+
+ console.log(ownProps);
