@@ -13,4 +13,17 @@ duck.constructor === Bird; // false
 duck.constructor === Object; // true
 duck instanceof Bird; // true
 
-// Changing constructed property makes this property like not constructed property
+// Changing constructed property makes this property like not constructed property. So that we should write constructor as a property.
+
+Bird.prototype = {
+  constructor: Bird, // Here we write constructor property
+  numLegs: 2,
+  eat: function() {
+    console.log("nom nom nom");
+  },
+  describe: function() {
+    console.log("My name is " + this.name); 
+  }
+}
+
+
