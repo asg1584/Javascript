@@ -1,0 +1,16 @@
+/*This statement is explaining a crucial side effect that occurs when you manually set an object's prototype to a new object in JavaScript. 
+The side effect is that it erases the constructor property. 
+The constructor property is typically used to identify which constructor function created an instance, but when it is overwritten, it can lead to incorrect results.*/
+
+function Bird() {
+}
+var duck = new Bird();
+duck.__proto__ = {
+  // New prototype object
+};
+
+duck.constructor === Bird; // false
+duck.constructor === Object; // true
+duck instanceof Bird; // true
+
+// Changing constructed property makes this property like not constructed property
