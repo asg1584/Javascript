@@ -1,0 +1,56 @@
+/*There's a principle in programming called Don't Repeat Yourself (DRY). The reason repeated code is a problem is because any change requires fixing code in multiple places. 
+This usually means more work for programmers and more room for errors.*/
+
+function Cat(name) {
+  this.name = name;
+}
+Cat.prototype = {
+  constructor: Cat,
+};
+
+function Bear(name) {
+  this.name = name;
+}
+Bear.prototype = {
+  constructor: Bear
+};
+function Animal() { }
+Animal.prototype = {
+  constructor: Animal,
+  eat: function() {
+    console.log("nom nom nom");
+  }
+};
+// Until this point I get all of this information from freecode Camp. There is a problem. How will system know what is animal? We must define it. I researched and find it last version.
+function Animal(name) {
+  this.name = name;
+}
+Animal.prototype = {
+  constructor: Animal,
+  eat: function() {
+    console.log("nom nom nom");
+  }
+};
+
+function Cat(name) {
+  Animal.call(this, name); // Takes the animal specialities.
+}
+Cat.prototype = Object.create(Animal.prototype);
+Cat.prototype.constructor = Cat;
+
+Cat.prototype.meow = function() { // for effecting cat
+  console.log("Meow!");
+};
+function Bear(name) {
+  Animal.call(this, name); // // for effecting bear
+}
+Bear.prototype = Object.create(Animal.prototype);
+Bear.prototype.constructor = Bear;
+
+// // for adding bear's properties
+Bear.prototype.roar = function() {
+  console.log("Roar!");
+};
+
+
+
