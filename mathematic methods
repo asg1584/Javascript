@@ -1,0 +1,38 @@
+function calculateAverage(numbers) {
+  if (numbers.length === 0) {
+    return 0; // If the array is empty, the average is 0.
+  }
+
+  const sum = numbers.reduce((accumulator, current) => accumulator + current, 0);
+  return sum / numbers.length; // Calculate the average of array elements.
+}
+
+function findLargest(numbers) {
+  if (numbers.length === 0) {
+    return null; // If the array is empty, return null.
+  }
+
+  return Math.max(...numbers); // Find the largest number in the array.
+}
+
+function calculateTotal(numbers) {
+  if (numbers.length === 0) {
+    return 0; // If the array is empty, the total is 0.
+  }
+
+  const total = numbers.reduce((accumulator, current) => accumulator + current, 0);
+  return total; // Calculate the sum of array elements.
+}
+
+// Get an array of numbers from the user
+const userNumbers = [5, 10, 15, 20, 25];
+
+// Call the functions and get the results
+const average = calculateAverage(userNumbers);
+const largest = findLargest(userNumbers);
+const total = calculateTotal(userNumbers);
+
+// Print the results to the console
+console.log("Average: " + average);
+console.log("Largest Number: " + largest);
+console.log("Total: " + total);
