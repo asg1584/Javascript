@@ -1,0 +1,11 @@
+//concat method add something or an array to the end of an array. 
+// Change the nonMutatingPush function so it uses concat to merge newItem to the end of original without mutating original or newItem arrays. The function should return an array.
+
+function nonMutatingPush(original, newItem) {
+  return original.concat(newItem);// We add array in paranthesis to the array, which is before concat method.
+}
+
+const first = [1, 2, 3];
+const second = [4, 5];
+nonMutatingPush(first, second);
+// Finally we have [1,2,3,4,5]
