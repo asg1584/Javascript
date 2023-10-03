@@ -1,0 +1,41 @@
+/*The user may fill out the form field any way they choose as long as it has the format of a valid US number. 
+The following are examples of valid formats for US numbers (refer to the tests below for other variants):
+
+555-555-5555
+(555)555-5555
+(555) 555-5555
+555 555 5555
+5555555555
+1 555 555 5555
+For this challenge you will be presented with a string such as 800-692-7753 or 8oo-six427676;laskdjf. 
+Your job is to validate or reject the US phone number based on any combination of the formats provided above. 
+The area code is required. If the country code is provided, you must confirm that the country code is 1. 
+Return true if the string is a valid US phone number; otherwise return false.*/
+
+function telephoneCheck(str) {
+  //  We prepare a number order for phone.
+  // It must contain all of the order, which accepts all formats.
+  const phoneRegex = /^(1\s?)?(\(\d{3}\)|\d{3})([-\s]?)\d{3}([-|\s]?)\d{4}$/;  
+/* (1\s?)?: This is an optional group. It represents the country code for international calls to the U.S., which is "1."
+However, this group is optional, as not all phone numbers will have an international code.
+\s? checks for the presence of a space character, indicating the optional nature of the country code.
+(\(\d{3}\)|\d{3}): This group represents the three-digit area code. It consists of two options: 
+It starts with (\(\d{3}\) and includes an opening parenthesis, three digits, and a closing parenthesis, or it continues with \d{3} and includes just three digits. 
+This allows for both parentheses-enclosed and unenclosed area codes.
+
+([-\s]?): This group represents an optional separator following the area code. It can be either a hyphen (dash) or a space character, indicated by [-\s]?. 
+It's optional, so the separator doesn't have to be present.
+
+\d{3}: This part represents the middle three digits of the phone number. In other words, there must be exactly three digits in the middle section of the phone number.
+
+([-|\s]?): This group represents a separator between the middle three digits and the last four digits. 
+Similar to the previous separator, it can be either a hyphen or a space character and is optional.
+
+\d{4}: This part represents the last four digits of the phone number. The phone number's last section must contain exactly four digits.
+
+$: End of string. The regex will attempt to match up to the end of the string.*/
+  return phoneRegex.test(str);
+}
+
+telephoneCheck("555-555-5555");// True
+
